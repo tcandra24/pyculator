@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "numerra"
-version = "0.1.1"
+version = "0.1.2"
 description = "Numerra is a Python advance CLI calculator that supports various mathematical operations"
 readme = "README.md"
 authors = [
