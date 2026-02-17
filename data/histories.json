@@ -1,8 +1,14 @@
 [
   {
-    "param1": 10,
-    "param2": 11,
+    "param1": 2,
+    "param2": 5,
     "operator": "+",
-    "result": 21
+    "result": 7
+  },
+  {
+    "param1": 10,
+    "param2": 5,
+    "operator": "-",
+    "result": 5
   }
 ]

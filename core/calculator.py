@@ -1,3 +1,5 @@
+from .errors import DivisionByZeroError
+
 class Calculator:
   @staticmethod
   def add(a, b):
@@ -13,4 +15,6 @@ class Calculator:
 
   @staticmethod
   def division(a, b):
+    if b ==0 :
+      raise DivisionByZeroError
     return a / b

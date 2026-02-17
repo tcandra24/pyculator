@@ -2,3 +2,7 @@ Level 1 Upgrade:
 - buat mode inline command dan menu OK
 - bisa clear history OK
 - add file json untuk menyimpan history OK
+==============================================
+- add Logging OK
+- config system
+- add unit test

@@ -5,43 +5,42 @@ from core.operations import execute_operation
 from core.errors import CalculatorError
 from core.history import History
 from enums.menu import Menu
+from logs.logging import logging
+from config.config import load_config
 
 def menu_mode(histories):
 
     while True:
-        try:
-            print ("""
+        print ("""
 Choose Menu:
-    1. Penjumlahan
-    2. Pengurangan
-    3. Perkalian
-    4. Pembagian
-    5. History
-    6. Hapus History
-    7. Keluar
-            """)
-            menu = input_menu()
+1. Penjumlahan
+2. Pengurangan
+3. Perkalian
+4. Pembagian
+5. History
+6. Hapus History
+7. Keluar
+        """)
+        menu = input_menu()
 
-            if menu == Menu.EXIT: 
-                print("Terima Kasih!!")
-                break
+        if menu == Menu.EXIT: 
+            print("Terima Kasih!!")
+            break
 
-            if menu == Menu.HISTORY:
-                histories.show()
-                continue
+        if menu == Menu.HISTORY:
+            histories.show()
+            continue
 
-            if menu == Menu.CLEAR:
-                histories.clear()
-                print("History berhasil dihapus!")
-                continue
-            
-            value_1 = loop_validation_input("Masukan Angka Pertama : ")
-            value_2 = loop_validation_input("Masukan Angka Kedua : ")
+        if menu == Menu.CLEAR:
+            histories.clear()
+            print("History berhasil dihapus!")
+            continue
+        
+        value_1 = loop_validation_input("Masukan Angka Pertama : ")
+        value_2 = loop_validation_input("Masukan Angka Kedua : ")
 
-            result = execute_operation(menu, value_1, value_2, histories)
-            print(f"Hasilnya yaitu : {result}")
-        except CalculatorError as e:
-            print(f"Error : {e}")
+        result = execute_operation(menu, value_1, value_2, histories)
+        print(f"Hasilnya yaitu : {result}")        
 
 def interactive_mode(args, parser, histories):
     if args.add:
@@ -87,12 +86,18 @@ def main():
 
     args = parser.parse_args()
 
-    histories = History()
+    config = load_config()
 
-    if args.menu:
-        menu_mode(histories)
-    else:
-        interactive_mode(args, parser, histories)
+    histories = History(config.max_history, config.auto_save)
+    
+    try:
+        if args.menu:
+            menu_mode(histories)
+        else:
+            interactive_mode(args, parser, histories)
+    except CalculatorError as e:
+        logging(f"Error : {e}")
+        print(f"Error : {e}")
 
 if __name__ == "__main__":
     main()
