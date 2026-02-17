@@ -96,7 +96,6 @@ Numerra uses a JSON-based configuration system.
 
 Configurable options include:
 
-- Decimal precision
 - Logging behavior
 - Runtime settings
 
