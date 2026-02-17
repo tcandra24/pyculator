@@ -1,0 +1,2 @@
+[console_scripts]
+numerra = numerra.main:main

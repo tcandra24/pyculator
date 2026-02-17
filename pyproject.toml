@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "numerra"
+version = "0.1.1"
+description = "Numerra is a Python advance CLI calculator that supports various mathematical operations"
+readme = "README.md"
+authors = [
+  {"name" = "Tito Candra", "email" = "titocandradev@gmail.com"}
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools.package-data]
+numerra = ["config/*.json", "data/*.json"]
+
+[project.scripts]
+numerra = "numerra.main:main"

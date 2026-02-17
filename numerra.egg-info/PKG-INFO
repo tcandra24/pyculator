@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: numerra
+Version: 0.1.1
+Summary: Numerra is a Python advance CLI calculator that supports various mathematical operations
+Author-email: Tito Candra <titocandradev@gmail.com>
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
