@@ -22,8 +22,6 @@ Choose Menu:
 7. Keluar
         """)
         menu = input_menu()
-        print(menu)
-        print(Menu.HISTORY)
 
         if menu == Menu.EXIT: 
             print("Terima Kasih!!")
@@ -72,7 +70,7 @@ def interactive_mode(args, parser, histories):
         
 def main():
     parser = argparse.ArgumentParser(description="Python Calculator Project")
-    parser.add_argument("--version", action="version", version="Python Calculator Project 0.1.1")
+    parser.add_argument("--version", action="version", version="Python Calculator Project 0.1.4")
     parser.add_argument("--menu", action="store_true", help="Menu Mode for Calculator")
 
     parser.add_argument("-a", "--add", action="store_true", help="Choose add mode for Calculator")
